@@ -21,62 +21,68 @@ The synchronisation of the employee data between two systems requires the follow
 Use the create endpoint to add a new employee's information to our system.
 
 ### Sample request
+```POST /companies/{companyId}/employees```
 
 ```json
-curl --request POST \
-  --url https://api.nmbrsapp.com/api/companies/{companyId}/employees \
-  --header 'Accept: application/json' \
-  --header 'Authorization: Bearer 123' \
-  --header 'Content-Type: application/json' \
-  --header 'X-Subscription-Key: ' \
-  --data '{
-  "PersonalInfo": {
-    "personalInfoId": "0039b188-b5f5-49a6-a3d5-0448ce4042ee",
-    "basicInfo": {
-      "employeeNumber": 98072,
-      "firstName": "John",
-      "firstNameInFull": "string",
-      "prefix": "van der",
-      "initials": "string",
-      "lastName": "Doe",
-      "employeeType": "applicant"
+{
+  "request": {
+    "method": "POST",
+    "path": "/companies/{companyId}/employees",
+    "headers": {
+      "Content-Type": "application/json",
+      "X-Subscription-Key": "7b92603e-77ed-4896-8e78-5dea2050476a",
+      "Authorization": "Authorization: Bearer 123"
     },
-    "birthInfo": {
-      "birthDate": "1980-02-27",
-      "birthCountryCodeISO": "NL",
-      "nationalityCodeISO": "PT",
-      "deceasedOn": "1980-02-27",
-      "gender": "unspecified"
-    },
-    "contactInfo": {
-      "privateEmail": "doe@private.com",
-      "businessEmail": "doe@business.com",
-      "businessPhone": "+351222222",
-      "businessMobilePhone": "+351222222",
-      "privatePhone": "+351222222",
-      "privateMobilePhone": "+351222222",
-      "otherPhone": "+351222222"
-    },
-    "partnerInfo": {
-      "partnerPrefix": "string",
-      "partnerName": "string",
-      "ascriptionCode": 0
-    },
-    "period": {
-      "year": 2021,
-      "period": 4
-    },
-    "createdAt": "2021-07-01T10:15:08Z"
-  },
-  "AdditionalEmployeeInfo": {
-    "inServiceDate": "2019-08-24",
-    "defaultEmployeeTemplate": "string"
+    "data": {
+      "PersonalInfo": {
+        "personalInfoId": "0039b188-b5f5-49a6-a3d5-0448ce4042ee",
+        "basicInfo": {
+          "employeeNumber": 98072,
+          "firstName": "John",
+          "firstNameInFull": "string",
+          "prefix": "van der",
+          "initials": "string",
+          "lastName": "Doe",
+          "employeeType": "applicant"
+        },
+        "birthInfo": {
+          "birthDate": "1980-02-27",
+          "birthCountryCodeISO": "NL",
+          "nationalityCodeISO": "PT",
+          "deceasedOn": "1980-02-27",
+          "gender": "unspecified"
+        },
+        "contactInfo": {
+          "privateEmail": "doe@private.com",
+          "businessEmail": "doe@business.com",
+          "businessPhone": "+351222222",
+          "businessMobilePhone": "+351222222",
+          "privatePhone": "+351222222",
+          "privateMobilePhone": "+351222222",
+          "otherPhone": "+351222222"
+        },
+        "partnerInfo": {
+          "partnerPrefix": "string",
+          "partnerName": "string",
+          "ascriptionCode": 0
+        },
+        "period": {
+          "year": 2021,
+          "period": 4
+        },
+        "createdAt": "2021-07-01T10:15:08Z"
+      },
+      "AdditionalEmployeeInfo": {
+        "inServiceDate": "2019-08-24",
+        "defaultEmployeeTemplate": "string"
+      }
+    }
   }
-}'
+}
 
 ```
-* Replace the header `Authorization: Bearer 123` with your authorisation bearer token.
-* Replace the header `X-Subscription-Key: ` with your subscription id. For more information, see [Prerequisites.](#Prerequisites)
+* Replace the value for the header `Authorization` with your authorisation bearer token.
+* Replace the value for the header `X-Subscription-Key: ` with your subscription id. For more information, see [Prerequisites.](#Prerequisites)
 * Provide all the information about the specific employee in the `PersonalInfo` object.
   * Replace the `personalInfoId` with a Version 4 UUID generated through your code.
   * Provide the basic, birth, and contact information in the `basicInfo`, `birthInfo`, and `contactInfo` objects respectively.
@@ -86,7 +92,7 @@ For more information on the fields in the request, see the complete [request bod
 
 ### Sample response
 
-A successful response returns a unique employee UUID created by the API for the new employee.
+A successful JSON response returns a unique employee UUID created by the API for the new employee.
 
 ```json
 {
@@ -101,53 +107,59 @@ For all other response types returned by the endpoint, see [Response codes for c
 Use this endpoint to update either the basic, birth, or the contact information for an employee.
 
 ### Sample request
+``` PUT /employees/{employeeId}/personalInfo```
 
 ```json
-curl --request PUT \
---url https://api.nmbrsapp.com/api/employees/{employeeId}/personalInfo \
---header 'Accept: application/json' \
---header 'Authorization: Bearer 123' \
---header 'Content-Type: application/json' \
---header 'X-Subscription-Key: ' \
---data '{
-  "basicInfo": {
-  "employeeNumber": 98072,
-  "firstName": "John",
-  "firstNameInFull": "string",
-  "prefix": "van der",
-  "initials": "string",
-  "lastName": "Doe",
-  "employeeType": "applicant"
-  },
-  "birthInfo": {
-  "birthDate": "2019-08-24T14:15:22Z",
-  "birthCountryCodeISO": "NL",
-  "nationalityCodeISO": "NL",
-  "deceasedOn": "2019-08-24T14:15:22Z",
-  "gender": "unspecified"
-  },
-  "contactInfo": {
-  "privateEmail": "doe@private.com",
-  "businessEmail": "doe@business.com",
-  "businessPhone": "+351222222",
-  "businessMobilePhone": "+351222222",
-  "privatePhone": "+351222222",
-  "privateMobilePhone": "+351222222",
-  "otherPhone": "+351222222"
-  },
-  "partnerInfo": {
-  "partnerPrefix": "string",
-  "partnerName": "string",
-  "ascriptionCode": 0
-  },
-  "period": {
-  "year": 2021,
-  "period": 4
+{
+  "request": {
+    "method": "PUT",
+    "path": "/employees/{employeeId}/personalInfo",
+    "headers": {
+      "Content-Type": "application/json",
+      "X-Subscription-Key": "7b92603e-77ed-4896-8e78-5dea2050476a",
+      "Authorization": "Authorization: Bearer 123"
+    },
+    "data": {
+      "basicInfo": {
+        "employeeNumber": 98072,
+        "firstName": "John",
+        "firstNameInFull": "string",
+        "prefix": "van der",
+        "initials": "string",
+        "lastName": "Doe",
+        "employeeType": "applicant"
+      },
+      "birthInfo": {
+        "birthDate": "2019-08-24T14:15:22Z",
+        "birthCountryCodeISO": "NL",
+        "nationalityCodeISO": "NL",
+        "deceasedOn": "2019-08-24T14:15:22Z",
+        "gender": "unspecified"
+      },
+      "contactInfo": {
+        "privateEmail": "doe@private.com",
+        "businessEmail": "doe@business.com",
+        "businessPhone": "+351222222",
+        "businessMobilePhone": "+351222222",
+        "privatePhone": "+351222222",
+        "privateMobilePhone": "+351222222",
+        "otherPhone": "+351222222"
+      },
+      "partnerInfo": {
+        "partnerPrefix": "string",
+        "partnerName": "string",
+        "ascriptionCode": 0
+      },
+      "period": {
+        "year": 2021,
+        "period": 4
+      }
+    }
   }
-}'
+}
 ```
-* Replace the header `Authorization: Bearer 123` with your authorisation bearer token.
-* Replace the header `X-Subscription-Key: ` with your subscription id. For more information, see [Prerequisites.](#Prerequisites)
+* Replace the value for the header `Authorization` with your authorisation bearer token.
+* Replace the value for the header `X-Subscription-Key: ` with your subscription id. For more information, see [Prerequisites.](#Prerequisites)
 * Provide the updated basic, birth, and contact information in the `basicInfo`, `birthInfo`, and `contactInfo` objects respectively.
 
 For more information on the fields in the request, see the complete [request body.](https://nmbrs.stoplight.io/docs/nmbrs-restapi/e12e45d11695c-update-employee-personal-info#request-body)
