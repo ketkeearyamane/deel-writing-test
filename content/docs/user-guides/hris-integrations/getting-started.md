@@ -10,8 +10,7 @@ Before you proceed, you must:
 * Create a web or a mobile app through [My Integrations](https://partner-portal.nmbrs.com/integrations) tab and get the Client Id and the Client Secret to call APIs. Ensure you store the Client Secret credentials at a safe location in your system since it's displayed only once when you 
   create it.
 * Choose one of the subscription plans on [Products](https://developer.nmbrs.com/products) page on the Nmbrs developer portal. Ensure you store the subscription id since you need to send it in the request body for API calls.
-* Set up authentication correctly. For more information on how to set up authentication, see [How to authenticate.](https://nmbrs.stoplight.io/docs/nmbrs-restapi/e9e0f5292b4a1-authentication) If you want to do a quick test without credentials, you can use the [Mock Server](https://nmbrs.
-  stoplight.io/docs/nmbrs-restapi/9c14f1c024642-getting-started#mock-server). 
+* Set up authentication correctly. For more information on how to set up authentication, see [How to authenticate.](https://nmbrs.stoplight.io/docs/nmbrs-restapi/e9e0f5292b4a1-authentication) If you want to do a quick test without credentials, you can use the [Mock Server](https://nmbrs.stoplight.io/docs/nmbrs-restapi/9c14f1c024642-getting-started#mock-server). 
 
 ## Required endpoints
 The synchronisation of the employee data between your system and Nmbrs API requires the following endpoints:
