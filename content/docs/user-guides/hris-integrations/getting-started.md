@@ -5,7 +5,7 @@ The following getting started guide describes steps to build a HRIS integration.
 ## Prerequisites
 Before you proceed, you must:
 * Sign up for an account on the [Nmbrs developer portal.](https://developer.nmbrs.com/)
-* Create a web or a mobile app through <b>My Integrations<b> tab and get the Client Id and the Client Secret to call APIs. Ensure you store the Client Secret credentials at a safe location in your system since it's displayed only once when you create it.
+* Create a web or a mobile app through <b>My Integrations</b> tab and get the Client Id and the Client Secret to call APIs. Ensure you store the Client Secret credentials at a safe location in your system since it's displayed only once when you create it.
 * Choose one of the subscription plans on [Products](https://developer.nmbrs.com/products) page on the Nmbrs developer portal. Ensure you store the subscription id since you need to send it in the request body for API calls.
 * Set up authentication correctly. For more information on how to set up authentication, see [How to authenticate.](https://nmbrs.stoplight.io/docs/nmbrs-restapi/e9e0f5292b4a1-authentication)
 
@@ -13,7 +13,7 @@ Before you proceed, you must:
 The synchronisation of the employee data between two systems requires the following endpoints:
 
 * Create employee
-* [Update employee personal info](https://nmbrs.stoplight.io/docs/nmbrs-restapi/e12e45d11695c-update-employee-personal-info)
+* Update employee personal info
 
 ## Create employee
 
@@ -74,8 +74,8 @@ curl --request POST \
 }'
 
 ```
-* Replace `Authorization: Bearer 123` with your authorisation bearer token.
-* Replace `X-Subscription-Key: ` with your subscription id. For more information, see [Prerequisites.](#Prerequisites)
+* Replace the header `Authorization: Bearer 123` with your authorisation bearer token.
+* Replace the header `X-Subscription-Key: ` with your subscription id. For more information, see [Prerequisites.](#Prerequisites)
 * Provide all the information about the specific employee in the `PersonalInfo` object.
   * Replace the `personalInfoId` with a Version 4 UUID generated through your code.
   * Provide the basic, birth, and contact information in the `basicInfo`, `birthInfo`, and `contactInfo` objects respectively.
@@ -145,9 +145,11 @@ curl --request PUT \
   }
 }'
 ```
-* Replace `Authorization: Bearer 123` with your authorisation bearer token.
-* Replace `X-Subscription-Key: ` with your subscription id. For more information, see [Prerequisites.](#Prerequisites)
+* Replace the header `Authorization: Bearer 123` with your authorisation bearer token.
+* Replace the header `X-Subscription-Key: ` with your subscription id. For more information, see [Prerequisites.](#Prerequisites)
 * Provide the updated basic, birth, and contact information in the `basicInfo`, `birthInfo`, and `contactInfo` objects respectively.
+
+For more information on the fields in the request, see the complete [request body.](https://nmbrs.stoplight.io/docs/nmbrs-restapi/e12e45d11695c-update-employee-personal-info#request-body)
 
 ### Sample response
 
