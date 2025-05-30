@@ -173,5 +173,5 @@ The response returns the personal Info UUID that you generated when you invoked 
   "personalInfoId": "756bd0de-fc2f-4b7c-b7ba-d3a3f5360a5b"
 }
 ```
-For all other response types returned by the endpoint, see[Response codes for update employee personal info.](nmbrs.stoplight.io/docs/nmbrs-restapi/e12e45d11695c-update-employee-personal-info#Responses)
+For all other response types returned by the endpoint, see [Response codes for update employee personal info.](https://nmbrs.stoplight.io/docs/nmbrs-restapi/e12e45d11695c-update-employee-personal-info#Responses)
 
