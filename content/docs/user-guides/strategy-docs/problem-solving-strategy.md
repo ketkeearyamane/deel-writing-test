@@ -8,22 +8,22 @@ I recommend we use the following strategy to improve documentation so we expand 
    * Steps to start getting onboarded to the portal and use the APIs.
    * How to go live with the integrated app.
    
-Expected impact: This type of guide helps product and engineering teams thoroughly understand and evaluate the API. It enables them to determine whether the API can effectively support their specific business use case. As a result, we can focus our API efforts on the right developers, reducing the burden on support by addressing common questions upfront.
+   Expected impact: This type of guide helps product and engineering teams thoroughly understand and evaluate the API. It enables them to determine whether the API can effectively support their specific business use case. As a result, we can focus our API efforts on the right developers, reducing the burden on support by addressing common questions upfront.
 
 2. Split the integration journey into stages and monitor every stage for each integrator. Tap all the data points for all issues faced by integrators. 
 
-Some of this data should point to problems in the docs the integrators found during their journey. Funnel back these inputs to update docs. Clearer docs will reduce support tickets.
+   Some of this data should point to problems in the docs the integrators found during their journey. Funnel back these inputs to update docs. Clearer docs will reduce support tickets.
 
 3. Expand on the first point by creating getting started guides describing the happy path for the most common use cases that the API solves for integrators. 
 
-If integrators can get hold of the specific information, they'll know the exact steps to take and quickly get started building their first app. This may reduce specific use case queries to developer support.
+   If integrators can get hold of the specific information, they'll know the exact steps to take and quickly get started building their first app. This may reduce specific use case queries to developer support.
 
 4. Create a form on Developer Support portal which is specifically designed to enable integrators raise issues for documentation only. The form can have the following inputs:
    *  Which pages have the respective problem?
    * What exactly is the problem in the pages?
    * What was expected by the integrator which could help with faster integration?
 
-This will allow documentation issues to be clearly identified, enabling technical writers to quickly make targeted improvements. The support will no longer have to entertain the doc related issues and can focus on other high priority issues.
+   This will allow documentation issues to be clearly identified, enabling technical writers to quickly make targeted improvements. The support will no longer have to entertain the doc related issues and can focus on other high priority issues.
 
 5. Implement per page feedback for docs or set up analytics to collect metrics specifically to trace documentation defects. Fix issues collected from the metrics. Doing this will ensure the documentation is continually improved.
 
