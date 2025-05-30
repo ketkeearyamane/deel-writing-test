@@ -1,6 +1,8 @@
 # Build an HRIS integration
 
-The following getting started guide describes steps to build a HRIS integration. This integration helps you synchronise the employee data between two different systems.
+The following getting started guide outlines the steps to build an HRIS integration that synchronizes employee data between your system and the Nmbrs API.
+When a new employee joins your organization, you collect their information and use the Nmbrs API to store it.
+Later, if the employee updates any personal details, those changes can be synced seamlessly with the Nmbrs database via the same API.
 
 ## Prerequisites
 Before you proceed, you must:
@@ -11,14 +13,14 @@ Before you proceed, you must:
 * Set up authentication correctly. For more information on how to set up authentication, see [How to authenticate.](https://nmbrs.stoplight.io/docs/nmbrs-restapi/e9e0f5292b4a1-authentication)
 
 ## Required endpoints
-The synchronisation of the employee data between two systems requires the following endpoints:
+The synchronisation of the employee data between your system and Nmbrs API requires the following endpoints:
 
 * Create employee
 * Update employee personal info
 
 ## Create employee
 
-Use the create endpoint to add a new employee's information to our system.
+Use the Create endpoint to add a new employee's information to the Nmbrs API database. You can include basic details, birth information, and contact data. The API supports storing records for both applicants and payroll employees.
 
 ### Sample request
 ```POST /companies/{companyId}/employees```
@@ -104,7 +106,7 @@ For all other response types returned by the endpoint, see [Response codes for c
 
 ## Update employee personal info
 
-Use this endpoint to update either the basic, birth, or the contact information for an employee.
+Use this endpoint to update the basic, birth, or the contact information for an employee.
 
 ### Sample request
 ``` PUT /employees/{employeeId}/personalInfo```
