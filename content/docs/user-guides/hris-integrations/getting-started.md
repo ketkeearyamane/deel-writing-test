@@ -1,8 +1,8 @@
 # Build an HRIS integration
 
-The following getting started guide outlines the steps to build an HRIS integration that synchronizes employee data between your system and the Nmbrs API.
-When a new employee joins your organization, you collect their information and use the Nmbrs API to store it.
-Later, if the employee updates any personal details, those changes can be synced seamlessly with the Nmbrs database via the same API.
+The following getting started guide outlines the steps to build an HRIS integration that synchronizes employee data between your system and Visma.
+When a new employee joins your organization, you collect their information and use the Nmbrs API to store it in Visma.
+Later, if the employee updates any personal details, those changes can be synced seamlessly with Visma via the same API.
 
 ## Prerequisites
 Before you proceed, you must:
@@ -20,7 +20,7 @@ The synchronisation of the employee data between your system and Nmbrs API requi
 
 ## Create employee
 
-Use the Create endpoint to add a new employee's information to the Nmbrs API database. You can include basic details, birth information, and contact data. The API supports storing records for both applicants and payroll employees.
+Use the Create endpoint to add a new employee's information to Visma. You can include basic details, birth information, and contact data. The API supports storing records for both applicants and payroll employees.
 
 ### Sample request
 ```POST /companies/{companyId}/employees```
@@ -85,10 +85,10 @@ Use the Create endpoint to add a new employee's information to the Nmbrs API dat
 ```
 * Replace the value for the header `Authorization` with your authorisation bearer token.
 * Replace the value for the header `X-Subscription-Key: ` with your subscription id. For more information, see [Prerequisites.](#Prerequisites)
-* Provide all the information about the specific employee in the `PersonalInfo` object.
-  * Replace the `personalInfoId` with a Version 4 UUID generated through your code.
-  * Provide the basic, birth, and contact information in the `basicInfo`, `birthInfo`, and `contactInfo` objects respectively.
-* Provide all the information about the payroll employees in the `AdditionalEmployeeInfo` object.
+  * Provide all the information about the specific employee in the `PersonalInfo` object. This object can be stored for both employee types - `applicant` and `employee`.
+    * Replace the `personalInfoId` with a Version 4 UUID generated through your code.
+    * Provide the basic, birth, and contact information in the `basicInfo`, `birthInfo`, and `contactInfo` objects respectively.
+* Provide all the information about the payroll employees in the `AdditionalEmployeeInfo` object if the `employeeType` is `employee`.
 
 For more information on the fields in the request, see the complete [request body.](https://nmbrs.stoplight.io/docs/nmbrs-restapi/13c6a8d9c7190-create-employee#request-body)
 
@@ -168,7 +168,7 @@ For more information on the fields in the request, see the complete [request bod
 
 ### Sample response
 
-The response returns the personal Info UUID that you generated when you invoked the [Create employee](#create-employee) endpoint.
+A successful JSON response returns the personal Info UUID that you generated when you invoked the [Create employee](#create-employee) endpoint.
 
 ```json
 {
