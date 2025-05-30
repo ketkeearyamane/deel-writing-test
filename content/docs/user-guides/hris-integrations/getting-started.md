@@ -13,7 +13,7 @@ Before you proceed, you must:
 * Set up authentication correctly. For more information on how to set up authentication, see [How to authenticate.](https://nmbrs.stoplight.io/docs/nmbrs-restapi/e9e0f5292b4a1-authentication) If you want to do a quick test without credentials, you can use the [Mock Server](https://nmbrs.stoplight.io/docs/nmbrs-restapi/9c14f1c024642-getting-started#mock-server). 
 
 ## Required endpoints
-The synchronisation of the employee data between your system and Nmbrs API requires the following endpoints:
+The synchronisation of the employee data between your system and Visma requires the following endpoints:
 
 * Create employee
 * Update employee personal info
