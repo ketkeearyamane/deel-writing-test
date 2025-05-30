@@ -26,9 +26,9 @@ If integrators can get hold of the specific information, they'll know the exact 
 
 This will allow documentation issues to be clearly identified, enabling technical writers to quickly make targeted improvements.
 
-5. Run a quarterly audit with product/engineering teams to review content, code samples etc. Prepare a list and fix high priority issues for missing/inaccurate/incomplete information. Doing this, the docs can remain updated and consistent with time.
+5. Implement per page feedback for docs or set up analytics to collect metrics specifically to trace documentation defects. Fix issues collected from the metrics. Doing this will ensure the documentation is continually improved.
+6. Run a quarterly audit with product/engineering teams to review content, code samples etc. Prepare a list and fix high priority issues for missing/inaccurate/incomplete information. Doing this, the docs can remain updated and consistent with time.
 
-6. Try to implement docs for no-code or minimal code solution. By doing so, partners can get onboarded with minimal set up and effort.
+7. Try to implement docs for no-code or minimal code solution. By doing so, partners can get onboarded with minimal set up and effort.
 
-7. Implement per page feedback for docs or set up analytics to collect metrics specifically to trace documentation defects. Fix issues collected from the metrics. Doing this will ensure the documentation is continually improved.
 
