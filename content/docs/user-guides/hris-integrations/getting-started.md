@@ -5,7 +5,8 @@ The following getting started guide describes steps to build a HRIS integration.
 ## Prerequisites
 Before you proceed, you must:
 * Sign up for an account on the [Nmbrs developer portal.](https://developer.nmbrs.com/)
-* Create a web or a mobile app through <b>My Integrations</b> tab and get the Client Id and the Client Secret to call APIs. Ensure you store the Client Secret credentials at a safe location in your system since it's displayed only once when you create it.
+* Create a web or a mobile app through [My Integrations](https://partner-portal.nmbrs.com/integrations) tab and get the Client Id and the Client Secret to call APIs. Ensure you store the Client Secret credentials at a safe location in your system since it's displayed only once when you 
+  create it.
 * Choose one of the subscription plans on [Products](https://developer.nmbrs.com/products) page on the Nmbrs developer portal. Ensure you store the subscription id since you need to send it in the request body for API calls.
 * Set up authentication correctly. For more information on how to set up authentication, see [How to authenticate.](https://nmbrs.stoplight.io/docs/nmbrs-restapi/e9e0f5292b4a1-authentication)
 
