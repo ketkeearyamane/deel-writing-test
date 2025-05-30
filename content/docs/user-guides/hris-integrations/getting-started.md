@@ -1,6 +1,8 @@
 # Build an HRIS integration
 
-The following getting started guide describes steps to build a HRIS integration. This integration helps you synchronise the employee data between two different systems.
+The following getting started guide outlines the steps to build an HRIS integration that synchronizes employee data between your system and Visma.
+When a new employee joins your organization, you collect their information and use the Nmbrs API to store it in Visma.
+Later, if the employee updates any personal details, those changes can be synced seamlessly with Visma via the same API.
 
 ## Prerequisites
 Before you proceed, you must:
@@ -8,20 +10,23 @@ Before you proceed, you must:
 * Create a web or a mobile app through [My Integrations](https://partner-portal.nmbrs.com/integrations) tab and get the Client Id and the Client Secret to call APIs. Ensure you store the Client Secret credentials at a safe location in your system since it's displayed only once when you 
   create it.
 * Choose one of the subscription plans on [Products](https://developer.nmbrs.com/products) page on the Nmbrs developer portal. Ensure you store the subscription id since you need to send it in the request body for API calls.
-* Set up authentication correctly. For more information on how to set up authentication, see [How to authenticate.](https://nmbrs.stoplight.io/docs/nmbrs-restapi/e9e0f5292b4a1-authentication)
+* Set up authentication correctly. For more information on how to set up authentication, see [How to authenticate.](https://nmbrs.stoplight.io/docs/nmbrs-restapi/e9e0f5292b4a1-authentication) If you want to do a quick test without credentials, you can use the [Mock Server](https://nmbrs.stoplight.io/docs/nmbrs-restapi/9c14f1c024642-getting-started#mock-server). 
 
 ## Required endpoints
-The synchronisation of the employee data between two systems requires the following endpoints:
+The synchronisation of the employee data between your system and Nmbrs API requires the following endpoints:
 
 * Create employee
 * Update employee personal info
 
+Base URL for the endpoints - `https://api.nmbrsapp.com`
+
 ## Create employee
 
-Use the create endpoint to add a new employee's information to our system.
+Use the Create endpoint to add a new employee's information to Visma. You can include basic details, birth information, and contact data. The API supports storing records for both applicants and payroll employees.
 
 ### Sample request
-```POST /companies/{companyId}/employees```
+
+```POST /api/companies/{companyId}/employees```
 
 ```json
 {
@@ -83,10 +88,10 @@ Use the create endpoint to add a new employee's information to our system.
 ```
 * Replace the value for the header `Authorization` with your authorisation bearer token.
 * Replace the value for the header `X-Subscription-Key: ` with your subscription id. For more information, see [Prerequisites.](#Prerequisites)
-* Provide all the information about the specific employee in the `PersonalInfo` object.
-  * Replace the `personalInfoId` with a Version 4 UUID generated through your code.
-  * Provide the basic, birth, and contact information in the `basicInfo`, `birthInfo`, and `contactInfo` objects respectively.
-* Provide all the information about the payroll employees in the `AdditionalEmployeeInfo` object.
+  * Provide all the information about the specific employee in the `PersonalInfo` object. This object can be stored for both employee types - `applicant` and `employee`.
+    * Replace the `personalInfoId` with a Version 4 UUID generated through your code.
+    * Provide the basic, birth, and contact information in the `basicInfo`, `birthInfo`, and `contactInfo` objects respectively.
+* Provide all the information about the payroll employees in the `AdditionalEmployeeInfo` object if the `employeeType` is `employee`.
 
 For more information on the fields in the request, see the complete [request body.](https://nmbrs.stoplight.io/docs/nmbrs-restapi/13c6a8d9c7190-create-employee#request-body)
 
@@ -104,10 +109,10 @@ For all other response types returned by the endpoint, see [Response codes for c
 
 ## Update employee personal info
 
-Use this endpoint to update either the basic, birth, or the contact information for an employee.
+Use this endpoint to update the basic, birth, or the contact information for an employee.
 
 ### Sample request
-``` PUT /employees/{employeeId}/personalInfo```
+``` PUT /api/employees/{employeeId}/personalInfo```
 
 ```json
 {
@@ -160,13 +165,15 @@ Use this endpoint to update either the basic, birth, or the contact information 
 ```
 * Replace the value for the header `Authorization` with your authorisation bearer token.
 * Replace the value for the header `X-Subscription-Key: ` with your subscription id. For more information, see [Prerequisites.](#Prerequisites)
+* Replace the path parameter `employeeId` with the UUID that you received in response after calling the [Create employee](#create-employee) endpoint. This UUID uniquely defines the employee in Visma.
+* Replace the `employeeNumber` to the unique employee number generated by your system.
 * Provide the updated basic, birth, and contact information in the `basicInfo`, `birthInfo`, and `contactInfo` objects respectively.
 
 For more information on the fields in the request, see the complete [request body.](https://nmbrs.stoplight.io/docs/nmbrs-restapi/e12e45d11695c-update-employee-personal-info#request-body)
 
 ### Sample response
 
-The response returns the personal Info UUID that you generated when you invoked the [Create employee](#create-employee) endpoint.
+A successful JSON response returns the personal Info UUID that you generated when you invoked the [Create employee](#create-employee) endpoint.
 
 ```json
 {
